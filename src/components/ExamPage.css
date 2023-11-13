@@ -16,23 +16,33 @@
   margin: 80px 0;
 }
 
-.side > div {
+.side .sub {
   display: inline-block;
   cursor: pointer;
   margin: 10px auto;
   border-bottom: 2px solid transparent;
   width:108px;
+  transition: all 0.5s;
 }
 
 .side > div:hover {
   color: #AA6666;
+}
+
+.side .select {
+  color: #AA6666;
   border-bottom: 2px solid #AA6666;
+}
+
+.side .logoPos {
+  position: absolute;
+  right: 0;
 }
 
 .side .logo {
   position: absolute;
   right: -50px;
-  top: 47px;
+  top: 45px;
   z-index: 5;
 }
 
@@ -50,6 +60,7 @@
 .content .imgblock {
   position: relative;
   overflow: hidden;
+  max-height: 80vh;
 }
 
 .content .imgblock .imgContent{
@@ -137,19 +148,31 @@
   }
 
   .side > h2 {
+    position: relative;
     margin: 20px;
   }
 
-  .side > div {
-    display: none;
-    /*display: inline-block;*/
+  .side > .sub {
+    display: inline-block;
     cursor: pointer;
     margin: 10px auto;
+    height: 0;
+    margin: 0 auto;
+    overflow: hidden;
     border-bottom: 2px solid transparent;
     width:108px;
   }
 
+  .side .show {
+    height: 20px;
+    margin: 10px auto;
+  }
+
   .side > div:hover {
+    color: #AA6666;
+  }
+
+  .side .select {
     color: #AA6666;
     border-bottom: 2px solid #AA6666;
   }
@@ -174,13 +197,14 @@
   }
 
   .content img {
-    width: 140%;
+    width: 160%;
     margin: -12% 0 0 -40%;
   }
 
   .content .imgblock {
     position: relative;
     overflow: hidden;
+    max-height: 50vh;
   }
 
   .content .imgblock .imgContent{
@@ -212,4 +236,58 @@
     flex-direction: column;
   }
 
+  .burger {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+  }
+  
+  .burger > div {
+    transition: all 0.5s;
+    position: absolute;
+    width: 20px;
+    height: 5px;
+    background-color: black;
+    left: 5px;
+    top: 15px;
+    border-radius: 3px;
+  }
+  .burger > div::before {
+    transition: all 0.5s;
+    position: absolute;
+    width: 25px;
+    height: 5px;
+    left: 0;
+    background-color: black;
+    top: -10px;
+    content: "";
+    border-radius: 3px;
+  }
+  .burger > div::after {
+    transition: all 0.5s;
+    position: absolute;
+    width: 25px;
+    height: 5px;
+    left: 0;
+    background-color: rgba(0,0,0,1);
+    top: 10px;
+    content: "";
+    border-radius: 3px;
+  }
+  
+  .close > div {
+    background-color: rgba(0,0,0,0);
+  }
+  
+  .close > div::before {
+    width: 27.5px;
+    transform-origin:left;
+    transform: rotate(45deg)
+  }
+  .close > div::after {
+    width: 27.5px;
+    transform-origin:left;
+    transform: rotate(-45deg)
+  }
 }

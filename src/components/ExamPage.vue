@@ -1,11 +1,14 @@
 ﻿<template>
   <div class="exam">
     <div class="side">
-      <h2>白頭翁不吃小米</h2>
-      <div>白頭翁的特性</div>
-      <div>白頭翁的故事</div>
-      <div>白頭翁的美照</div>
-      <div>白頭翁的危機</div>
+      <h2>
+        <div class="burger" :class="{'close': showbar}" v-on:click="clickShow()"><div></div></div>
+        白頭翁不吃小米
+      </h2>
+      <div class="sub select" :class="{'show': showbar}">白頭翁的特性</div>
+      <div class="sub" :class="{'show': showbar}">白頭翁的故事</div>
+      <div class="sub" :class="{'show': showbar}">白頭翁的美照</div>
+      <div class="sub" :class="{'show': showbar}">白頭翁的危機</div>
       <div class="logoPos">
         <div class="logo">
           <div></div>
@@ -35,6 +38,7 @@
 
 <script setup>
 import SubDesc from './SubDesc.vue';
+import { ref } from 'vue';
 const name = '白頭翁 (Chinese bulbul)';
 const desc = '又名白頭鵯。以果實、昆蟲為主食，無法消化小米、穀類。平均壽命約 8~10 年。';
 const textDesc = [{
@@ -47,5 +51,8 @@ const textDesc = [{
   title: '食性',
   desc: '以果樹的漿果和種子為主食，並時常飛入果園偷吃果實，還會吃嫩葉嫩芽，尤其是胡蝶蘭的嫩葉嫩芽葉，偶爾啄食昆蟲。',
 }];
-
+let showbar = ref(false);
+function clickShow () {
+  showbar.value = !showbar.value;
+}
 </script>
